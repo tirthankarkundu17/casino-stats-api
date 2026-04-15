@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"tirthankarkundu17/casino-analytics/internal/cache"
-	"tirthankarkundu17/casino-analytics/internal/models"
-	"tirthankarkundu17/casino-analytics/internal/services"
+	"tirthankarkundu17/casino-stats-api/internal/cache"
+	"tirthankarkundu17/casino-stats-api/internal/models"
+	"tirthankarkundu17/casino-stats-api/internal/services"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"

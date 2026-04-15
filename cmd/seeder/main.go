@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
-	"tirthankarkundu17/casino-analytics/internal/config"
-	"tirthankarkundu17/casino-analytics/internal/db"
-	"tirthankarkundu17/casino-analytics/internal/logger"
-	"tirthankarkundu17/casino-analytics/internal/models"
+	"tirthankarkundu17/casino-statis-api/internal/config"
+	"tirthankarkundu17/casino-statis-api/internal/db"
+	"tirthankarkundu17/casino-statis-api/internal/logger"
+	"tirthankarkundu17/casino-statis-api/internal/models"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

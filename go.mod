@@ -1,4 +1,4 @@
-module tirthankarkundu17/casino-analytics
+module tirthankarkundu17/casino-stats-api
 
 go 1.25.7
 

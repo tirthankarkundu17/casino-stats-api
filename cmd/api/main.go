@@ -1,14 +1,14 @@
 package main
 
 import (
-	"tirthankarkundu17/casino-analytics/internal/cache"
-	"tirthankarkundu17/casino-analytics/internal/config"
-	"tirthankarkundu17/casino-analytics/internal/db"
-	"tirthankarkundu17/casino-analytics/internal/handlers"
-	"tirthankarkundu17/casino-analytics/internal/logger"
-	"tirthankarkundu17/casino-analytics/internal/repository"
-	"tirthankarkundu17/casino-analytics/internal/routes"
-	"tirthankarkundu17/casino-analytics/internal/services"
+	"tirthankarkundu17/casino-statis-api/internal/cache"
+	"tirthankarkundu17/casino-statis-api/internal/config"
+	"tirthankarkundu17/casino-statis-api/internal/db"
+	"tirthankarkundu17/casino-statis-api/internal/handlers"
+	"tirthankarkundu17/casino-statis-api/internal/logger"
+	"tirthankarkundu17/casino-statis-api/internal/repository"
+	"tirthankarkundu17/casino-statis-api/internal/routes"
+	"tirthankarkundu17/casino-statis-api/internal/services"
 
 	"github.com/gin-gonic/gin"
 )

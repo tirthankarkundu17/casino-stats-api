@@ -3,8 +3,8 @@ package routes
 import (
 	"net/http"
 
-	"tirthankarkundu17/casino-analytics/internal/handlers"
-	"tirthankarkundu17/casino-analytics/internal/middlewares"
+	"tirthankarkundu17/casino-stats-api/internal/handlers"
+	"tirthankarkundu17/casino-stats-api/internal/middlewares"
 
 	"github.com/gin-gonic/gin"
 )

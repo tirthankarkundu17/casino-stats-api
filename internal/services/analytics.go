@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"tirthankarkundu17/casino-analytics/internal/models"
-	"tirthankarkundu17/casino-analytics/internal/repository"
+	"tirthankarkundu17/casino-stats-api/internal/models"
+	"tirthankarkundu17/casino-stats-api/internal/repository"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

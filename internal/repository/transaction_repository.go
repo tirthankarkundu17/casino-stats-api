@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"tirthankarkundu17/casino-analytics/internal/models"
+	"tirthankarkundu17/casino-stats-api/internal/models"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
