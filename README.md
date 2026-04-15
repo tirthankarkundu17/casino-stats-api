@@ -1,4 +1,4 @@
-# Jackpot Bet Admin Stats API
+# Casino Admin Stats API
 
 A high-performance Go-based REST API designed to aggregate casino transaction data from MongoDB. This project includes a data seeder and uses Gin for the API, Redis for caching, and Zap for structured logging.
 
