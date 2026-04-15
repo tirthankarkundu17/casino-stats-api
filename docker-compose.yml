@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: casino-stats-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS:-secret123}
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  redis:
+    image: redis:latest
+    container_name: casino-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: .
+    container_name: casino-stats-api
+    command: ["./api"]
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - MONGO_URI=mongodb://${MONGO_USER:-admin}:${MONGO_PASS:-secret123}@mongodb:27017
+      - MONGO_DB=casino_analytics
+      - REDIS_ADDR=redis:6379
+      - STATIC_AUTH_TOKEN=${STATIC_AUTH_TOKEN:-super-secret-admin-key}
+      - TRANSACTION_COLLECTION=transactions
+      - SEEDER_NUM_USERS=500
+      - SEEDER_NUM_ROUNDS=2000000
+      - SEEDER_BATCH_SIZE=10000
+      - SEEDER_CONCURRENT=true
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  seeder:
+    build: .
+    container_name: casino-stats-seeder
+    command: ["./seeder"]
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USER:-admin}:${MONGO_PASS:-secret123}@mongodb:27017
+      - MONGO_DB=casino_analytics
+      - TRANSACTION_COLLECTION=transactions
+      - SEEDER_NUM_USERS=500
+      - SEEDER_NUM_ROUNDS=2000000
+      - SEEDER_BATCH_SIZE=10000
+      - SEEDER_CONCURRENT=true
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    # This service runs once and exits
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  mongo_data:
