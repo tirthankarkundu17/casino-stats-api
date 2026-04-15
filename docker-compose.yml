@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:latest
-    container_name: casino-mongodb
+    container_name: casino-stats-mongodb
     ports:
       - "27017:27017"
     environment:
@@ -31,7 +31,7 @@ services:
 
   api:
     build: .
-    container_name: casino-api
+    container_name: casino-stats-api
     command: ["./api"]
     ports:
       - "8080:8080"
@@ -54,7 +54,7 @@ services:
 
   seeder:
     build: .
-    container_name: casino-seeder
+    container_name: casino-stats-seeder
     command: ["./seeder"]
     environment:
       - MONGO_URI=mongodb://${MONGO_USER:-admin}:${MONGO_PASS:-secret123}@mongodb:27017
